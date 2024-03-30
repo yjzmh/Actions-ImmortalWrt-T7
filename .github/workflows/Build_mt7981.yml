@@ -94,6 +94,7 @@ jobs:
       id: compile
       run: |
         cd ImmortalWrt
+        sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_generate
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
